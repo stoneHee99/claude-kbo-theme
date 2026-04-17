@@ -23,18 +23,28 @@ All 10 KBO teams supported.
 
 ## Supported teams
 
-| ID | Team | Colors | Logo |
-|---|---|---|---|
-| `kia` | KIA 타이거즈 | Red + Navy | T |
-| `samsung` | 삼성 라이온즈 | Blue + White | S |
-| `lg` | LG 트윈스 | Black + Cherry Red | T |
-| `doosan` | 두산 베어스 | Navy + White | D |
-| `kt` | KT 위즈 | Black + White | K |
-| `ssg` | SSG 랜더스 | Red + White | L |
-| `nc` | NC 다이노스 | Navy + Gold | D |
-| `lotte` | 롯데 자이언츠 | Navy + Red | G |
-| `hanwha` | 한화 이글스 | Orange + White | E |
-| `kiwoom` | 키움 히어로즈 | Burgundy + White | K |
+<table>
+  <tr>
+    <td align="center"><img src="assets/kia.png" width="360"/><br/><code>kia</code> KIA 타이거즈</td>
+    <td align="center"><img src="assets/samsung.png" width="360"/><br/><code>samsung</code> 삼성 라이온즈</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/lg.png" width="360"/><br/><code>lg</code> LG 트윈스</td>
+    <td align="center"><img src="assets/doosan.png" width="360"/><br/><code>doosan</code> 두산 베어스</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/kt.png" width="360"/><br/><code>kt</code> KT 위즈</td>
+    <td align="center"><img src="assets/ssg.png" width="360"/><br/><code>ssg</code> SSG 랜더스</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/nc.png" width="360"/><br/><code>nc</code> NC 다이노스</td>
+    <td align="center"><img src="assets/lotte.png" width="360"/><br/><code>lotte</code> 롯데 자이언츠</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/hanwha.png" width="360"/><br/><code>hanwha</code> 한화 이글스</td>
+    <td align="center"><img src="assets/kiwoom.png" width="360"/><br/><code>kiwoom</code> 키움 히어로즈</td>
+  </tr>
+</table>
 
 ## Installation
 
