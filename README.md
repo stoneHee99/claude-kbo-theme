@@ -1,5 +1,9 @@
 # claude-kbo-theme
 
+<p align="right">
+  <b>English</b> · <a href="README.ko.md">한국어</a>
+</p>
+
 KBO (Korean Baseball Organization) team theme for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — dress up Clawd (Claude's mascot) with your favorite team's colors, cap, and logo.
 
 ![KBO](https://img.shields.io/badge/KBO-10%20teams-red)
