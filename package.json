@@ -1,0 +1,33 @@
+{
+  "name": "claude-kbo-theme",
+  "version": "0.1.0",
+  "description": "KBO (Korean Baseball) team theme for Claude Code — dress Clawd with your favorite team's colors, cap, and logo",
+  "main": "lib/binary.js",
+  "bin": {
+    "claude-kbo": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "keywords": [
+    "claude-code",
+    "claude",
+    "kbo",
+    "baseball",
+    "theme",
+    "ascii-art",
+    "terminal",
+    "cli"
+  ],
+  "author": "stoneHee99",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ]
+}
