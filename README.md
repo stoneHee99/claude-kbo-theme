@@ -4,6 +4,10 @@
   <b>English</b> · <a href="README.ko.md">한국어</a>
 </p>
 
+<p align="center">
+  <img src="assets/logo.png" alt="claude-kbo-theme logo" width="320"/>
+</p>
+
 KBO (Korean Baseball Organization) team theme for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — dress up Clawd (Claude's mascot) with your favorite team's colors, cap, and logo.
 
 [![npm version](https://img.shields.io/npm/v/claude-kbo-theme.svg)](https://www.npmjs.com/package/claude-kbo-theme)
@@ -49,11 +53,29 @@ All 10 KBO teams supported.
   </tr>
 </table>
 
+## Requirements
+
+Claude Code must be installed via the **native installer** — not npm.
+
+This tool patches the Bun-compiled Mach-O binary that ships with the native installer. If `claude` on your system is an npm-installed shim (`npm install -g @anthropic-ai/claude-code`), there is no binary to patch and the tool will exit with "Could not find Claude Code binary."
+
+Quick check:
+
+```bash
+file "$(which claude)"
+# Expected: Mach-O 64-bit executable ...
+# If you see "a /usr/bin/env node script", you're on the npm build.
+```
+
+If you're on the npm build, reinstall Claude Code with the native installer (or run `/migrate-installer` inside Claude Code) before using this tool.
+
 ## Installation
 
 ```bash
 npm install -g claude-kbo-theme
 ```
+
+> Note: `claude-kbo-theme` itself is distributed via npm — only **Claude Code** needs to be the native install.
 
 ## Usage
 

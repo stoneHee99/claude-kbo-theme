@@ -4,6 +4,10 @@
   <a href="README.md">English</a> · <b>한국어</b>
 </p>
 
+<p align="center">
+  <img src="assets/logo.png" alt="claude-kbo-theme 로고" width="320"/>
+</p>
+
 KBO(한국프로야구) 팀 테마 for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — Clawd(Claude 마스코트)를 응원하는 팀의 색상, 모자, 로고로 꾸며보세요.
 
 [![npm version](https://img.shields.io/npm/v/claude-kbo-theme.svg)](https://www.npmjs.com/package/claude-kbo-theme)
@@ -49,11 +53,29 @@ KBO 10개 팀 전부 지원.
   </tr>
 </table>
 
+## 요구사항
+
+Claude Code가 **네이티브 인스톨러**로 설치되어 있어야 합니다 — npm 설치 버전은 지원하지 않습니다.
+
+이 도구는 네이티브 인스톨러가 설치하는 Bun 컴파일 Mach-O 바이너리를 패치합니다. 만약 시스템의 `claude`가 npm으로 설치된 쉘 스크립트(`npm install -g @anthropic-ai/claude-code`)라면 패치할 바이너리가 없어서 "Could not find Claude Code binary" 에러가 납니다.
+
+확인 방법:
+
+```bash
+file "$(which claude)"
+# 예상 결과: Mach-O 64-bit executable ...
+# "a /usr/bin/env node script" 가 뜨면 npm 빌드입니다.
+```
+
+npm 빌드라면 네이티브 인스톨러로 재설치하거나 Claude Code 내부에서 `/migrate-installer` 명령을 실행한 뒤 이 도구를 사용하세요.
+
 ## 설치
 
 ```bash
 npm install -g claude-kbo-theme
 ```
+
+> 참고: `claude-kbo-theme` 자체는 npm으로 배포되지만, 패치 대상인 **Claude Code**는 네이티브 설치여야 합니다.
 
 ## 사용법
 
