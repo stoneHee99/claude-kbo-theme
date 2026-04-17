@@ -6,6 +6,9 @@
 
 KBO(한국프로야구) 팀 테마 for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — Clawd(Claude 마스코트)를 응원하는 팀의 색상, 모자, 로고로 꾸며보세요.
 
+[![npm version](https://img.shields.io/npm/v/claude-kbo-theme.svg)](https://www.npmjs.com/package/claude-kbo-theme)
+[![npm downloads](https://img.shields.io/npm/dm/claude-kbo-theme.svg)](https://www.npmjs.com/package/claude-kbo-theme)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![KBO](https://img.shields.io/badge/KBO-10%20teams-red)
 ![macOS](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&logoColor=white)
 ![Node](https://img.shields.io/badge/Node-16%2B-339933?style=flat&logo=node.js&logoColor=white)
