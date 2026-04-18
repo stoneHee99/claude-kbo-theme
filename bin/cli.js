@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const { TEAMS } = require("../lib/teams");
+const { TEAMS, ORIGINAL_COLOR } = require("../lib/teams");
 const { findClaudeBinary } = require("../lib/patcher");
 const { extractJS, writeJS } = require("../lib/binary");
 const { patchJS } = require("../lib/hat-patch");
@@ -26,6 +26,44 @@ function printUsage() {
   console.log();
 }
 
+// Check if the binary is a stock (unpatched) Claude Code
+function isStockBinary(binary) {
+  try {
+    const js = extractJS(binary);
+    // Stock binary has the original Clawd color
+    return js.includes(ORIGINAL_COLOR);
+  } catch {
+    return false;
+  }
+}
+
+// Ensure backup is up-to-date with current stock Claude Code
+// - If current binary is stock: update backup (handles Claude Code updates)
+// - If current binary is patched: keep existing backup
+function ensureBackup(binary, backupPath) {
+  if (isStockBinary(binary)) {
+    // Current binary is stock — sync backup to current version
+    if (!fs.existsSync(backupPath)) {
+      console.log("  Creating backup...");
+    } else {
+      const curSize = fs.statSync(binary).size;
+      const bakSize = fs.statSync(backupPath).size;
+      if (curSize !== bakSize) {
+        console.log("  Claude Code updated — refreshing backup...");
+      }
+    }
+    fs.copyFileSync(binary, backupPath);
+    return;
+  }
+
+  // Binary is already patched — backup must exist from a previous run
+  if (!fs.existsSync(backupPath)) {
+    throw new Error(
+      "Binary is patched but no backup found. Reinstall Claude Code with the native installer."
+    );
+  }
+}
+
 function main() {
   if (!command || command === "--help" || command === "-h") {
     printUsage();
@@ -48,10 +86,6 @@ function main() {
   }
 
   const backupPath = binary + ".backup";
-  if (!fs.existsSync(backupPath)) {
-    console.log("  Creating backup...");
-    fs.copyFileSync(binary, backupPath);
-  }
 
   if (command === "--restore" || command === "-r") {
     if (fs.existsSync(backupPath)) {
@@ -76,7 +110,10 @@ function main() {
   }
 
   try {
-    // Always start from backup
+    // Make sure backup reflects the current stock Claude Code version
+    ensureBackup(binary, backupPath);
+
+    // Start patching from the known-stock backup
     fs.copyFileSync(backupPath, binary);
 
     console.log("\n  Extracting JS...");
