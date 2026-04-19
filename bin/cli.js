@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const { TEAMS, ORIGINAL_COLOR } = require("../lib/teams");
+const { TEAMS } = require("../lib/teams");
 const { findClaudeBinary } = require("../lib/patcher");
 const { extractJS, writeJS } = require("../lib/binary");
 const { patchJS } = require("../lib/hat-patch");
@@ -26,12 +26,17 @@ function printUsage() {
   console.log();
 }
 
-// Check if the binary is a stock (unpatched) Claude Code
+// Check if the binary is a stock (unpatched) Claude Code.
+// Instead of checking for a specific color (which may change in future
+// versions), we check if any of our team colors are present. If none,
+// it's stock (whatever Claude Code version/Clawd style Anthropic ships).
 function isStockBinary(binary) {
   try {
     const js = extractJS(binary);
-    // Stock binary has the original Clawd color
-    return js.includes(ORIGINAL_COLOR);
+    for (const team of Object.values(TEAMS)) {
+      if (js.includes(team.color)) return false; // our team color = patched
+    }
+    return true;
   } catch {
     return false;
   }
